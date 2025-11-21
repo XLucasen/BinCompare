@@ -1,23 +1,6 @@
 # 二进制文件对比工具
 
-一个用于对比两个二进制文件的数据差异, 双文件对比、十六进制显示、差异高亮、详细差异信息列表。
-
-## 快速信息
-
-- **项目名称**：二进制文件对比工具（BinCompare）
-- **版本**：v1.5.1
-- **开发语言**：C# 12.0
-- **框架**：WPF + .NET 8.0
-- **架构模式**：MVVM
-- **开发者**：XLucasen
-- **GitHub**：[XLucasen](https://github.com/XLucasen)
-- **开发日期**：2025年11月22日
-
-## 应用截图
-
-![二进制文件对比工具界面](Rs/微信图片_20251122015906.png)
-
-*应用程序主界面展示：双文件对比、十六进制显示、差异高亮、详细差异信息列表*
+一个功能完整的WPF桌面应用程序，用于对比两个二进制文件的数据差异。
 
 ## 功能特性
 
@@ -61,16 +44,7 @@ BinCompare/
 ├── MainWindow.xaml                # 主窗口UI
 ├── MainWindow.xaml.cs             # 主窗口代码后台
 ├── App.xaml                       # 应用程序资源
-├── BinCompare.csproj              # 项目文件
-├── README.md                      # 项目文档（本文件）
-├── QUICKSTART.md                  # 快速开始指南
-├── FEATURES.md                    # 详细功能说明
-├── PROJECT_SUMMARY.md             # 项目技术总结
-├── Rs/                            # 资源文件夹
-│   └── 微信图片_20251122015906.png # 应用截图
-└── TestFiles/
-    ├── TestFileA.bin              # 测试文件A
-    └── TestFileB.bin              # 测试文件B
+└── BinCompare.csproj              # 项目文件
 ```
 
 ## 技术栈
@@ -79,7 +53,6 @@ BinCompare/
 - **语言**：C# 12.0
 - **目标框架**：.NET 8.0
 - **架构模式**：MVVM (Model-View-ViewModel)
-- **编译状态**：✅ 成功编译（28个警告，0个错误）
 
 ## 使用指南
 
@@ -180,59 +153,4 @@ MIT License
 
 ## 作者
 
-**XLucasen**
-
-- GitHub：[https://github.com/XLucasen](https://github.com/XLucasen)
-- 开发日期：2025年11月22日
-
-## 版本历史
-
-### v1.5.3 (2025-11-22)
-- ✨ 完整的项目文档和GitHub集成
-- 📸 添加应用界面截图
-- 📚 完善版本历史记录
-
-### v1.1.0 (2025-11-21)
-- ✨ 新增拖拽文件加载功能
-- 🎯 支持直接拖拽文件到显示区域
-- 🎨 拖拽时视觉反馈（边框高亮）
-- 📝 完整的拖拽功能文档
-
-### v1.0.0 (2025-11-21)
-- ✅ 初始版本发布
-- 🎯 双文件对比功能
-- 🔍 十六进制和二进制显示
-- 📊 差异自动检测和高亮
-- ⌨️ 3个键盘快捷键
-- 📤 差异导出功能
-- 📚 完整的项目文档
-
-## 相关文档
-
-本项目包含以下完整文档：
-
-### 主要文档
-- **README.md** - 项目总体介绍和使用指南（本文件）
-- **QUICKSTART.md** - 快速开始指南
-- **FEATURES.md** - 详细功能说明
-- **PROJECT_SUMMARY.md** - 项目技术总结
-
-### 详细文档（Doc文件夹）
-- **INDEX.md** - 文档索引和快速导航
-- **DELIVERY_SUMMARY.md** - 项目交付总结
-- **VERIFICATION_CHECKLIST.md** - 验证清单和测试报告
-- **UPDATE_NOTES.md** - 更新说明
-- **DRAG_DROP_FEATURE.md** - 拖拽功能详细说明
-- **UI_REDESIGN.md** - UI设计说明
-- **HELP_WINDOW_FEATURE.md** - 帮助窗口功能
-- **COMPLETION_REPORT.md** - 完成报告
-- **STATUS_REPORT.md** - 状态报告
-
-### 其他参考文档
-- **QUICK_REFERENCE.md** - 快速参考
-- **FEATURE_SUMMARY.md** - 功能总结
-- **HANDYCONTROLS_SETUP.md** - HandyControls设置
-- **HANDYCONTROLS_QUICK_START.md** - HandyControls快速开始
-- **ASCII_SELECTION_COLOR.md** - ASCII选择颜色说明
-- **SPLITTER_FEATURE.md** - 分割线功能说明
-- **TOGGLE_DIFFERENCE_PANEL.md** - 差异面板切换说明
+Binary Compare Tool Development Team

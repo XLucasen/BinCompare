@@ -1,0 +1,207 @@
+<Window x:Class="BinCompare.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="帮助信息" Height="600" Width="700"
+        Background="#F5F5F5"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize">
+    <DockPanel>
+        <!-- 标题栏 -->
+        <Border DockPanel.Dock="Top" Background="#0078D4" Padding="15,10">
+            <TextBlock Text="二进制文件对比工具 - 帮助" 
+                      Foreground="White" FontSize="18" FontWeight="Bold"/>
+        </Border>
+
+        <!-- 内容区 -->
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="20,15,20,20">
+                
+                <!-- 版本信息 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="版本信息" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="应用名称：二进制文件对比工具" Margin="0,5"/>
+                        <TextBlock Text="版本号：v1.5.3" Margin="0,5"/>
+                        <TextBlock Text="开发框架：WPF (.NET 8.0) MVVM" Margin="0,5"/>
+                        <TextBlock Text="发布日期：2025年11月22日" Margin="0,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 作者信息 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="淮南枭龙网络科技" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="项目类型：二进制文件对比工具" Margin="0,5"/>
+                        <TextBlock Text="用途：快速对比两个二进制文件的差异" Margin="0,5"/>
+                        <TextBlock  Margin="0,5">
+                            <Run Text="作者：Lucas"/>
+                            <Run Text=" | "/>
+                            <Run Text="邮箱："/>
+                            <Hyperlink NavigateUri="mailto:332555220@qq.com" 
+                                       RequestNavigate="Hyperlink_RequestNavigate">
+                                332555220@qq.com
+                            </Hyperlink>
+                        </TextBlock>
+
+                        <TextBlock Margin="0,2">
+                            <Run Text="网址："/>
+                            <Hyperlink NavigateUri="https://0554h.com" 
+                                       RequestNavigate="Hyperlink_RequestNavigate"
+                                       Foreground="#FF007ACC">
+                                0554h.com
+                            </Hyperlink>
+                            <Run Text=" | "/>
+                            <Hyperlink NavigateUri="https://0554h.com/API/ZF" 
+                                       RequestNavigate="Hyperlink_RequestNavigate"
+                                       Foreground="#FF007ACC">
+                                赞赏支持
+                            </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <!-- 版本历史 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="版本历史" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.5.3 (2025-11-22)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 帮助窗口功能（新增）"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.5.2 (2025-11-22)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ ASCII选中状态颜色设置"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.5.1 (2025-11-22)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ HandyControls框架集成"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.5.0 (2025-11-21)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ ASCII字符显示功能"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.4.0 (2025-11-21)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 隐藏/显示差异信息功能"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.3.0 (2025-11-21)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 可拖拽分隔线功能"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.2.0 (2025-11-21)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 界面重新设计"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.1.0 (2025-11-21)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 拖拽文件功能"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.0.0 (2025-11-21)" FontWeight="Bold" Foreground="#107C10"/>
+                            <TextBlock Text="✅ 初始版本发布" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <!-- 核心功能 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="核心功能" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="✓ 双文件对比 - 同时打开和对比两个二进制文件" Margin="0,5"/>
+                        <TextBlock Text="✓ 十六进制/二进制显示 - 支持两种显示模式切换" Margin="0,5"/>
+                        <TextBlock Text="✓ ASCII字符显示 - 显示对应的ASCII字符" Margin="0,5"/>
+                        <TextBlock Text="✓ 差异高亮 - 自动检测并高亮显示差异字节" Margin="0,5"/>
+                        <TextBlock Text="✓ 可配置行长度 - 支持8/16/32/64字节每行" Margin="0,5"/>
+                        <TextBlock Text="✓ 差异导出 - 将差异信息导出为文本文件" Margin="0,5"/>
+                        <TextBlock Text="✓ 拖拽打开 - 支持拖拽文件到显示区打开" Margin="0,5"/>
+                        <TextBlock Text="✓ 可拖拽分隔线 - 调整文件显示区的宽度比例" Margin="0,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 快速开始 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="快速开始" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="1. 打开文件" Margin="0,5,0,3" FontWeight="Bold"/>
+                        <TextBlock Text="   • 点击'选择文件A'和'选择文件B'按钮选择要对比的文件" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 或直接拖拽文件到对应的显示区域" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="2. 查看对比结果" Margin="0,5,0,3" FontWeight="Bold"/>
+                        <TextBlock Text="   • 差异字节会自动高亮显示（红色背景）" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 右侧差异信息区显示详细的差异位置和内容" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="3. 调整显示" Margin="0,5,0,3" FontWeight="Bold"/>
+                        <TextBlock Text="   • 使用'切换为'按钮切换十六进制/二进制显示" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 使用下拉框选择每行显示的字节数（8/16/32/64）" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 点击'隐藏ASCII'按钮显示/隐藏ASCII字符" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="4. 导出结果" Margin="0,5,0,3" FontWeight="Bold"/>
+                        <TextBlock Text="   • 点击'导出差异'按钮将差异信息保存为文本文件" Margin="15,0,0,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 快捷键 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="快捷键" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="Ctrl+O    打开文件A" Margin="0,5"/>
+                        <TextBlock Text="Ctrl+Shift+O    打开文件B" Margin="0,5"/>
+                        <TextBlock Text="Ctrl+E    导出差异信息" Margin="0,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 使用提示 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="使用提示" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="• 选中某一行时，ASCII字符会变为红色，便于识别" Margin="0,5"/>
+                        <TextBlock Text="• 可以拖拽中间的分隔线调整文件A和文件B的显示宽度" Margin="0,5"/>
+                        <TextBlock Text="• 差异信息区可以隐藏，为文件显示区腾出更多空间" Margin="0,5"/>
+                        <TextBlock Text="• 支持大文件对比，但处理时间会相应增加" Margin="0,5"/>
+                        <TextBlock Text="• 差异导出的文件包含地址、类型、文件A值、文件B值等信息" Margin="0,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 常见问题 -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
+                    <StackPanel>
+                        <TextBlock Text="常见问题" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+                        
+                        <TextBlock Text="Q: 如何对比两个文件？" FontWeight="Bold" Margin="0,5,0,3"/>
+                        <TextBlock Text="A: 分别选择文件A和文件B，工具会自动进行对比。" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="Q: 如何导出差异结果？" FontWeight="Bold" Margin="0,5,0,3"/>
+                        <TextBlock Text="A: 点击'导出差异'按钮，选择保存位置即可导出为文本文件。" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="Q: 支持哪些文件格式？" FontWeight="Bold" Margin="0,5,0,3"/>
+                        <TextBlock Text="A: 支持所有二进制文件格式（.bin, .exe, .dll, 等）。" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="Q: 如何调整显示比例？" FontWeight="Bold" Margin="0,5,0,3"/>
+                        <TextBlock Text="A: 拖拽中间的分隔线可以调整文件A和文件B的显示宽度。" Margin="15,0,0,5"/>
+                    </StackPanel>
+                </Border>
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- 底部按钮 -->
+        <Border DockPanel.Dock="Bottom" Background="#F0F0F0" Padding="15" BorderBrush="#CCCCCC" BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="BtnClose" Width="80" Height="32" Margin="5,0"
+                       Click="BtnClose_Click"
+                       Background="#0078D4" Foreground="White" FontSize="11">
+                    关闭
+                </Button>
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</Window>
