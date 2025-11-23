@@ -17,6 +17,8 @@ namespace BinCompare.ViewModels
 
         private BinaryFileData _fileA;
         private BinaryFileData _fileB;
+        private BinaryFileData _originalFileA;
+        private BinaryFileData _originalFileB;
         private ObservableCollection<DataRow> _dataRowsA;
         private ObservableCollection<DataRow> _dataRowsB;
         private ObservableCollection<DifferenceInfo> _differences;
@@ -25,6 +27,8 @@ namespace BinCompare.ViewModels
         private string _statusMessage;
         private int _differenceCount;
         private bool _showAscii;
+        private bool _isFileAModified;
+        private bool _isFileBModified;
 
         /// <summary>
         /// 文件A数据
@@ -126,6 +130,24 @@ namespace BinCompare.ViewModels
         {
             get => _showAscii;
             set => SetProperty(ref _showAscii, value);
+        }
+
+        /// <summary>
+        /// 文件A是否被修改
+        /// </summary>
+        public bool IsFileAModified
+        {
+            get => _isFileAModified;
+            set => SetProperty(ref _isFileAModified, value);
+        }
+
+        /// <summary>
+        /// 文件B是否被修改
+        /// </summary>
+        public bool IsFileBModified
+        {
+            get => _isFileBModified;
+            set => SetProperty(ref _isFileBModified, value);
         }
 
         /// <summary>
@@ -357,6 +379,57 @@ namespace BinCompare.ViewModels
         private void JumpToDifference(DifferenceInfo diff)
         {
             JumpToDifferenceRequested?.Invoke(this, diff);
+        }
+
+        /// <summary>
+        /// 直接加载文件（用于命令行参数）
+        /// </summary>
+        public void LoadFileDirectly(string filePath, bool isFileA)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    StatusMessage = $"文件不存在: {filePath}";
+                    return;
+                }
+
+                byte[] fileData = File.ReadAllBytes(filePath);
+                var fileInfo = new FileInfo(filePath);
+
+                if (isFileA)
+                {
+                    FileA = new BinaryFileData
+                    {
+                        FilePath = filePath,
+                        Data = fileData,
+                        FileSize = fileInfo.Length,
+                        FileName = fileInfo.Name
+                    };
+                    StatusMessage = $"文件A已加载: {fileInfo.Name} ({fileInfo.Length} 字节)";
+                }
+                else
+                {
+                    FileB = new BinaryFileData
+                    {
+                        FilePath = filePath,
+                        Data = fileData,
+                        FileSize = fileInfo.Length,
+                        FileName = fileInfo.Name
+                    };
+                    StatusMessage = $"文件B已加载: {fileInfo.Name} ({fileInfo.Length} 字节)";
+                }
+
+                // 如果两个文件都已加载，自动进行对比
+                if (FileA.Data.Length > 0 && FileB.Data.Length > 0)
+                {
+                    PerformComparison();
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"加载文件错误: {ex.Message}";
+            }
         }
     }
 }

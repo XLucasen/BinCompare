@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BinCompare.Models
 {
@@ -77,6 +78,85 @@ namespace BinCompare.Models
     }
 
     /// <summary>
+    /// 字节段模型（用于显示单个字节的差异高亮）
+    /// </summary>
+    public class ByteSegment : INotifyPropertyChanged
+    {
+        private string _text;
+        private bool _isDifference;
+        private bool _isHighlighted;
+
+        /// <summary>
+        /// 字节段文本内容
+        /// </summary>
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                if (_text != value)
+                {
+                    _text = value;
+                    OnPropertyChanged(nameof(Text));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 是否为差异字节
+        /// </summary>
+        public bool IsDifference
+        {
+            get => _isDifference;
+            set
+            {
+                if (_isDifference != value)
+                {
+                    _isDifference = value;
+                    OnPropertyChanged(nameof(IsDifference));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 是否为临时高亮字节
+        /// </summary>
+        public bool IsHighlighted
+        {
+            get => _isHighlighted;
+            set
+            {
+                if (_isHighlighted != value)
+                {
+                    _isHighlighted = value;
+                    OnPropertyChanged(nameof(IsHighlighted));
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public ByteSegment()
+        {
+            _text = string.Empty;
+            _isDifference = false;
+            _isHighlighted = false;
+        }
+
+        public ByteSegment(string text, bool isDifference)
+        {
+            _text = text;
+            _isDifference = isDifference;
+            _isHighlighted = false;
+        }
+    }
+
+    /// <summary>
     /// 数据行模型
     /// </summary>
     public class DataRow
@@ -106,6 +186,11 @@ namespace BinCompare.Models
         /// </summary>
         public List<int> DifferenceIndices { get; set; }
 
+        /// <summary>
+        /// 字节段列表（用于单字节高亮）
+        /// </summary>
+        public List<ByteSegment> ByteSegments { get; set; }
+
         public DataRow()
         {
             Address = string.Empty;
@@ -113,6 +198,7 @@ namespace BinCompare.Models
             AsciiData = string.Empty;
             HasDifference = false;
             DifferenceIndices = new List<int>();
+            ByteSegments = new List<ByteSegment>();
         }
     }
 }

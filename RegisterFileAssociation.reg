@@ -1,0 +1,51 @@
+Windows Registry Editor Version 5.00
+
+; ========================================
+; BinCompare 文件关联注册表
+; ========================================
+; 注意: 请确保 BinCompare.exe 的路径正确
+
+; 注册 BinCompare.BinaryFile 类型
+[HKEY_CLASSES_ROOT\BinCompare.BinaryFile]
+@="二进制文件"
+
+[HKEY_CLASSES_ROOT\BinCompare.BinaryFile\DefaultIcon]
+@="C:\\Program Files\\BinCompare\\BinCompare.exe,0"
+
+[HKEY_CLASSES_ROOT\BinCompare.BinaryFile\shell]
+@="open"
+
+[HKEY_CLASSES_ROOT\BinCompare.BinaryFile\shell\open]
+@="用 BinCompare 打开"
+
+[HKEY_CLASSES_ROOT\BinCompare.BinaryFile\shell\open\command]
+@="\"C:\\Program Files\\BinCompare\\BinCompare.exe\" \"%%1\""
+
+; ========================================
+; 注册文件扩展名
+; ========================================
+
+; 注册 .bin 文件关联到 BinCompare
+[HKEY_CLASSES_ROOT\.bin]
+@="BinCompare.BinaryFile"
+"Content Type"="application/octet-stream"
+
+; 注册 .dat 文件关联到 BinCompare
+[HKEY_CLASSES_ROOT\.dat]
+@="BinCompare.BinaryFile"
+"Content Type"="application/octet-stream"
+
+; 注册 .hex 文件关联到 BinCompare
+[HKEY_CLASSES_ROOT\.hex]
+@="BinCompare.BinaryFile"
+"Content Type"="application/octet-stream"
+
+; 注册 .rom 文件关联到 BinCompare
+[HKEY_CLASSES_ROOT\.rom]
+@="BinCompare.BinaryFile"
+"Content Type"="application/octet-stream"
+
+; 注册 .img 文件关联到 BinCompare
+[HKEY_CLASSES_ROOT\.img]
+@="BinCompare.BinaryFile"
+"Content Type"="application/octet-stream"

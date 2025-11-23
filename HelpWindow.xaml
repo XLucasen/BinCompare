@@ -21,9 +21,9 @@
                     <StackPanel>
                         <TextBlock Text="版本信息" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
                         <TextBlock Text="应用名称：二进制文件对比工具" Margin="0,5"/>
-                        <TextBlock Text="版本号：v1.5.3" Margin="0,5"/>
+                        <TextBlock Text="版本号：v1.7.0" Margin="0,5"/>
                         <TextBlock Text="开发框架：WPF (.NET 8.0) MVVM" Margin="0,5"/>
-                        <TextBlock Text="发布日期：2025年11月22日" Margin="0,5"/>
+                        <TextBlock Text="发布日期：2025年11月23日" Margin="0,5"/>
                     </StackPanel>
                 </Border>
 
@@ -64,6 +64,21 @@
                 <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="15" Margin="0,0,0,15" Background="White">
                     <StackPanel>
                         <TextBlock Text="版本历史" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.7.0 (2025-11-23)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 数据编辑、文件同步、文件保存/还原功能"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.6.1 (2025-11-22)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 添加拖拽文件到程序图标加载功能"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="v1.6.0 (2025-11-22)" FontWeight="Bold" Foreground="#107C10" />
+                            <TextBlock Text="✅ 字节级差异高亮显示、点击高亮功能"/>
+                        </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="v1.5.3 (2025-11-22)" FontWeight="Bold" Foreground="#107C10" />
@@ -118,11 +133,17 @@
                         <TextBlock Text="✓ 双文件对比 - 同时打开和对比两个二进制文件" Margin="0,5"/>
                         <TextBlock Text="✓ 十六进制/二进制显示 - 支持两种显示模式切换" Margin="0,5"/>
                         <TextBlock Text="✓ ASCII字符显示 - 显示对应的ASCII字符" Margin="0,5"/>
-                        <TextBlock Text="✓ 差异高亮 - 自动检测并高亮显示差异字节" Margin="0,5"/>
+                        <TextBlock Text="✓ 字节级差异高亮 - 精确高亮显示差异字节（浅红色）" Margin="0,5"/>
+                        <TextBlock Text="✓ 点击高亮 - 点击差异列表时临时高亮对应字节（黄色）" Margin="0,5"/>
                         <TextBlock Text="✓ 可配置行长度 - 支持8/16/32/64字节每行" Margin="0,5"/>
                         <TextBlock Text="✓ 差异导出 - 将差异信息导出为文本文件" Margin="0,5"/>
-                        <TextBlock Text="✓ 拖拽打开 - 支持拖拽文件到显示区打开" Margin="0,5"/>
+                        <TextBlock Text="✓ 拖拽打开 - 支持拖拽文件到程序图标或显示区打开" Margin="0,5"/>
                         <TextBlock Text="✓ 可拖拽分隔线 - 调整文件显示区的宽度比例" Margin="0,5"/>
+                        <TextBlock Text="✓ 数据编辑 - 右键菜单编辑选中行的十六进制数据" Margin="0,5"/>
+                        <TextBlock Text="✓ 文件同步 - 将一个文件的数据同步到另一个文件" Margin="0,5"/>
+                        <TextBlock Text="✓ 文件保存 - 保存修改到原文件或另存为新文件" Margin="0,5"/>
+                        <TextBlock Text="✓ 修改还原 - 还原文件到加载时的原始状态" Margin="0,5"/>
+                        <TextBlock Text="✓ 多行选择 - 支持Shift+点击和Ctrl+点击进行多行选择" Margin="0,5"/>
                     </StackPanel>
                 </Border>
 
@@ -132,10 +153,12 @@
                         <TextBlock Text="快速开始" FontSize="14" FontWeight="Bold" Foreground="#0078D4" Margin="0,0,0,10"/>
                         <TextBlock Text="1. 打开文件" Margin="0,5,0,3" FontWeight="Bold"/>
                         <TextBlock Text="   • 点击'选择文件A'和'选择文件B'按钮选择要对比的文件" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 或拖拽文件到程序图标自动打开（支持单文件或双文件）" Margin="15,0,0,5"/>
                         <TextBlock Text="   • 或直接拖拽文件到对应的显示区域" Margin="15,0,0,8"/>
                         
                         <TextBlock Text="2. 查看对比结果" Margin="0,5,0,3" FontWeight="Bold"/>
-                        <TextBlock Text="   • 差异字节会自动高亮显示（红色背景）" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 差异字节会自动高亮显示（浅红色背景）" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 点击右侧差异列表项，对应字节会临时高亮（黄色背景）" Margin="15,0,0,5"/>
                         <TextBlock Text="   • 右侧差异信息区显示详细的差异位置和内容" Margin="15,0,0,8"/>
                         
                         <TextBlock Text="3. 调整显示" Margin="0,5,0,3" FontWeight="Bold"/>
@@ -145,6 +168,13 @@
                         
                         <TextBlock Text="4. 导出结果" Margin="0,5,0,3" FontWeight="Bold"/>
                         <TextBlock Text="   • 点击'导出差异'按钮将差异信息保存为文本文件" Margin="15,0,0,5"/>
+                        
+                        <TextBlock Text="5. 编辑和保存" Margin="0,5,0,3" FontWeight="Bold"/>
+                        <TextBlock Text="   • 选中一行或连续多行，右键菜单选择'编辑已选数据'修改十六进制数据" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 右键菜单选择'同步到文件A/B'将选中数据同步到另一个文件" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 修改后，文件标题旁会显示'保存'、'另存为'、'还原'按钮" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 点击'保存'保存到原文件，或'另存为'保存到新位置" Margin="15,0,0,5"/>
+                        <TextBlock Text="   • 点击'还原'可以放弃修改，恢复到加载时的状态" Margin="15,0,0,5"/>
                     </StackPanel>
                 </Border>
 
@@ -167,6 +197,10 @@
                         <TextBlock Text="• 差异信息区可以隐藏，为文件显示区腾出更多空间" Margin="0,5"/>
                         <TextBlock Text="• 支持大文件对比，但处理时间会相应增加" Margin="0,5"/>
                         <TextBlock Text="• 差异导出的文件包含地址、类型、文件A值、文件B值等信息" Margin="0,5"/>
+                        <TextBlock Text="• 编辑功能仅支持连续行或单行选择，非连续选择会提示错误" Margin="0,5"/>
+                        <TextBlock Text="• 修改后的文件会在标题旁显示保存按钮，未保存前关闭程序会丢失修改" Margin="0,5"/>
+                        <TextBlock Text="• 同步功能会将选中行的数据复制到另一个文件的相同地址位置" Margin="0,5"/>
+                        <TextBlock Text="• 右键菜单可以复制已选数据或位置信息到剪贴板" Margin="0,5"/>
                     </StackPanel>
                 </Border>
 
@@ -185,7 +219,16 @@
                         <TextBlock Text="A: 支持所有二进制文件格式（.bin, .exe, .dll, 等）。" Margin="15,0,0,8"/>
                         
                         <TextBlock Text="Q: 如何调整显示比例？" FontWeight="Bold" Margin="0,5,0,3"/>
-                        <TextBlock Text="A: 拖拽中间的分隔线可以调整文件A和文件B的显示宽度。" Margin="15,0,0,5"/>
+                        <TextBlock Text="A: 拖拽中间的分隔线可以调整文件A和文件B的显示宽度。" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="Q: 如何编辑文件数据？" FontWeight="Bold" Margin="0,5,0,3"/>
+                        <TextBlock Text="A: 选中一行或连续多行，右键菜单选择'编辑已选数据'，在弹出窗口修改十六进制数据。" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="Q: 如何保存修改？" FontWeight="Bold" Margin="0,5,0,3"/>
+                        <TextBlock Text="A: 修改后文件标题旁会显示保存按钮，点击'保存'保存到原文件，或'另存为'保存到新位置。" Margin="15,0,0,8"/>
+                        
+                        <TextBlock Text="Q: 如何同步两个文件的数据？" FontWeight="Bold" Margin="0,5,0,3"/>
+                        <TextBlock Text="A: 选中数据行，右键菜单选择'同步到文件A/B'，将数据复制到另一个文件的相同位置。" Margin="15,0,0,5"/>
                     </StackPanel>
                 </Border>
 

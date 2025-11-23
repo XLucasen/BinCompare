@@ -78,13 +78,21 @@ namespace BinCompare.Services
                 string address = (startOffset + i).ToString("X8");
                 string asciiString = ConvertBytesToAscii(rowData);
 
+                // 初始化字节段（暂时都是非差异）
+                var byteSegments = new List<ByteSegment>();
+                foreach (var b in rowData)
+                {
+                    byteSegments.Add(new ByteSegment(b.ToString("X2"), false));
+                }
+
                 rows.Add(new DataRow
                 {
                     Address = address,
                     Data = hexString,
                     AsciiData = asciiString,
                     HasDifference = false,
-                    DifferenceIndices = new List<int>()
+                    DifferenceIndices = new List<int>(),
+                    ByteSegments = byteSegments
                 });
             }
 
@@ -111,13 +119,21 @@ namespace BinCompare.Services
                 string address = (startOffset + i).ToString("X8");
                 string asciiString = ConvertBytesToAscii(rowData);
 
+                // 初始化字节段（暂时都是非差异）
+                var byteSegments = new List<ByteSegment>();
+                foreach (var b in rowData)
+                {
+                    byteSegments.Add(new ByteSegment(Convert.ToString(b, 2).PadLeft(8, '0'), false));
+                }
+
                 rows.Add(new DataRow
                 {
                     Address = address,
                     Data = binaryString,
                     AsciiData = asciiString,
                     HasDifference = false,
-                    DifferenceIndices = new List<int>()
+                    DifferenceIndices = new List<int>(),
+                    ByteSegments = byteSegments
                 });
             }
 
@@ -138,12 +154,22 @@ namespace BinCompare.Services
                 {
                     rowsA[rowIndex].HasDifference = true;
                     rowsA[rowIndex].DifferenceIndices.Add(byteIndexInRow);
+                    // 标记字节段中的差异
+                    if (byteIndexInRow < rowsA[rowIndex].ByteSegments.Count)
+                    {
+                        rowsA[rowIndex].ByteSegments[byteIndexInRow].IsDifference = true;
+                    }
                 }
 
                 if (rowIndex < rowsB.Count)
                 {
                     rowsB[rowIndex].HasDifference = true;
                     rowsB[rowIndex].DifferenceIndices.Add(byteIndexInRow);
+                    // 标记字节段中的差异
+                    if (byteIndexInRow < rowsB[rowIndex].ByteSegments.Count)
+                    {
+                        rowsB[rowIndex].ByteSegments[byteIndexInRow].IsDifference = true;
+                    }
                 }
             }
         }
